@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name | Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav container">
+      <a href="#hero" class="nav__logo" aria-label="Go to top">
+        <span class="nav__logo-mark" aria-hidden="true">♥</span>
+        <span class="nav__logo-text">Ipsa's Portfolio</span>
+      </a>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+      <ul class="nav__menu">
+        <li><a href="#hero" class="nav__link">Home</a></li>
+        <li><a href="#experience" class="nav__link">Experience</a></li>
+        <li><a href="#projects" class="nav__link">Projects</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__container">
+        <div class="hero__grid">
+          <div class="hero__left">
+            <p class="hero__greeting">Hi, I'm</p>
+            <h1 class="hero__title">Ipsa <span class="hero__title-accent">Manhas</span></h1>
+            <p class="hero__tagline">A curious builder, learner, and an avid dog-lover</p>
+            <div class="hero__cta">
+              <a href="#projects" class="btn btn--primary btn--pill">View my work</a>
+              <a href="#about" class="btn btn--secondary btn--pill">Learn more</a>
+            </div>
+          </div>
+          <div class="hero__right">
+            <div class="hero__visual hero__carousel" role="region" aria-label="Photo carousel">
+              <div class="hero__carousel-frame">
+                <div class="hero__carousel-inner">
+                <div class="hero__carousel-item">
+                  <img src="images/image1.JPG" alt="Slide 1" />
+                </div>
+                <div class="hero__carousel-item">
+                  <img src="images/image2.jpg" alt="Slide 2" />
+                </div>
+                <div class="hero__carousel-item">
+                  <img src="images/image3.jpg" alt="Slide 3" />
+                </div>
+                <div class="hero__carousel-item">
+                  <img src="images/image4.jpg" alt="Slide 4" />
+                </div>
+                <div class="hero__carousel-item">
+                  <img src="images/image5.jpg" alt="Slide 5" />
+                </div>
+                <div class="hero__carousel-item">
+                  <img src="images/image6.JPG" alt="Slide 6" />
+                </div>
+                <div class="hero__carousel-item">
+                  <img src="images/image7.JPG" alt="Slide 7" />
+                </div>
+                <div class="hero__carousel-item">
+                  <img src="images/image8.JPG" alt="Slide 8" />
+                </div>
+                <div class="hero__carousel-item">
+                  <img src="images/image9.jpg" alt="Slide 9" />
+                </div>
+                <div class="hero__carousel-item">
+                  <img src="images/image10.jpg" alt="Slide 10" />
+                </div>
+                <div class="hero__carousel-item">
+                  <img src="images/image11.jpg" alt="Slide 11" />
+                </div>
+              </div>
+              </div>
+              <button type="button" class="hero__carousel-btn hero__carousel-prev" aria-label="Previous image">‹</button>
+              <button type="button" class="hero__carousel-btn hero__carousel-next" aria-label="Next image">›</button>
+              <span class="hero__carousel-hit hero__carousel-hit--prev" aria-hidden="true"></span>
+              <span class="hero__carousel-hit hero__carousel-hit--next" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__left">
+            <h2 class="section__title">About me</h2>
+            <p class="about__subtitle">Hi! My name is Ipsa Manhas, I'm a 3rd year Computer Science & Mathematics student at the University of Alberta, and I love building things that work on utilizing AI and Machine Learning for Social Good.</p>
+            <div class="about__content">
+              <p class="about__text">
+                I am really keen on learning new things and getting into Software Development.
+              </p>
+              <p class="about__text">
+                When I'm not coding, I enjoy reading books, listening to music, and journaling :)
+                I also love travelling!
+              </p>
+            </div>
+            <div class="about__cta">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section experience">
+      <div class="container">
+        <h2 class="section__title">Experience</h2>
+
+        <div class="experience__list">
+          <article class="experience-row experience-row--green">
+            <div class="experience-row__content">
+              <h3 class="experience-row__title">Role title here</h3>
+              <p class="experience-row__meta">Company / Team · Year – Year</p>
+            </div>
+            <div class="experience-row__chip">Impact / focus</div>
+          </article>
+
+          <article class="experience-row experience-row--pink">
+            <div class="experience-row__content">
+              <h3 class="experience-row__title">Another experience</h3>
+              <p class="experience-row__meta">Organization · Year – Year</p>
+            </div>
+            <div class="experience-row__chip">Tools / stack</div>
+          </article>
+
+          <article class="experience-row experience-row--blue">
+            <div class="experience-row__content">
+              <h3 class="experience-row__title">Current focus</h3>
+              <p class="experience-row__meta">What you’re exploring now</p>
+            </div>
+            <div class="experience-row__chip">Learning</div>
+          </article>
+
+          <article class="experience-row experience-row--lavender">
+            <div class="experience-row__content">
+              <h3 class="experience-row__title">Add one more (optional)</h3>
+              <p class="experience-row__meta">Hackathon / volunteer / research · Year</p>
+            </div>
+            <div class="experience-row__chip">Highlights</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section projects">
+      <div class="container">
+        <h2 class="section__title section__title--xl">
+          Featured <span class="section__title-accent">Projects</span>
+        </h2>
+
+        <div id="projects-grid" class="projects__grid projects__grid--kawaii">
+          <article class="project-card project-card--media" data-category="web">
+            <div class="project-card__media project-card__media--pink" aria-hidden="true">
+              <div class="project-card__media-bubble"></div>
+              <div class="project-card__media-bubble project-card__media-bubble--two"></div>
+              <div class="project-card__media-heart">♥</div>
+            </div>
+            <div class="project-card__content">
+              <div class="project-card__meta">
+                <span class="pill pill--tag pill--tag-purple">Web</span>
+                <span class="pill pill--tag pill--tag-blue">UI/UX</span>
+              </div>
+              <h3 class="project-card__title">TaskRhythm</h3>
+              <p class="project-card__desc">
+                A task management app to help you stay organized and get things done. Built with [tech you used].
+              </p>
+              <div class="project-card__footer">
+                <a href="#" class="project-card__link" target="_blank" rel="noopener">View project</a>
+                <span class="project-card__stat">★ 2025</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card--media" data-category="extension">
+            <div class="project-card__media project-card__media--mint" aria-hidden="true">
+              <div class="project-card__media-bubble"></div>
+              <div class="project-card__media-bubble project-card__media-bubble--two"></div>
+              <div class="project-card__media-heart">✦</div>
+            </div>
+            <div class="project-card__content">
+              <div class="project-card__meta">
+                <span class="pill pill--tag pill--tag-green">Extension</span>
+                <span class="pill pill--tag pill--tag-yellow">JavaScript</span>
+              </div>
+              <h3 class="project-card__title">Chrome Extension</h3>
+              <p class="project-card__desc">
+                A browser extension that [brief description of what it does]. Built with JavaScript and the Chrome APIs.
+              </p>
+              <div class="project-card__footer">
+                <a href="#" class="project-card__link" target="_blank" rel="noopener">View project</a>
+                <span class="project-card__stat">★ 2024</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card project-card--media" data-category="ai">
+            <div class="project-card__media project-card__media--sky" aria-hidden="true">
+              <div class="project-card__media-bubble"></div>
+              <div class="project-card__media-bubble project-card__media-bubble--two"></div>
+              <div class="project-card__media-heart">☁</div>
+            </div>
+            <div class="project-card__content">
+              <div class="project-card__meta">
+                <span class="pill pill--tag pill--tag-pink">AI/ML</span>
+                <span class="pill pill--tag pill--tag-purple">Research</span>
+              </div>
+              <h3 class="project-card__title">Project three</h3>
+              <p class="project-card__desc">
+                Short description of another project, course work, or side project. Replace with your own.
+              </p>
+              <div class="project-card__footer">
+                <a href="#" class="project-card__link" target="_blank" rel="noopener">View project</a>
+                <span class="project-card__stat">★ 2023</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section skills">
+      <div class="container">
+        <h2 class="section__title">Skills</h2>
+        <ul class="skills__list">
+          <li class="skills__item">Python</li>
+          <li class="skills__item">Java</li>
+          <li class="skills__item">C#</li>
+          <li class="skills__item">C</li>
+          <li class="skills__item">JavaScript</li>
+          <li class="skills__item">HTML & CSS</li>
+          <li class="skills__item">React</li>
+          <li class="skills__item">Git</li>
+          <li class="skills__item">MongoDB</li>
+          <li class="skills__item">PostgreSQL</li>
+          <li class="skills__item">Docker</li>
+          <li class="skills__item">Kubernetes</li>
+          <li class="skills__item">AWS</li>
+          <li class="skills__item">Azure</li>
+          <li class="skills__item">GCP</li>
+          <li class="skills__item">Linux</li>
+          <li class="skills__item">Windows</li>
+          <li class="skills__item">MacOS</li>
+          <li class="skills__item">Android</li>
+          <li class="skills__item">React Native</li>
+          <li class="skills__item">Swift</li>
+          <li class="skills__item">Kotlin</li>
+      
+          
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2 class="section__title">Contact</h2>
+        <p class="contact__text">I'd love to connect! Reach out via email or LinkedIn.</p>
+        <div class="contact__links">
+          <a href="mailto:imanhas@ualberta.ca" class="contact__link">imanhas@ualberta.ca</a>
+          <a href="https://linkedin.com/in/ipsa-manhas/" class="contact__link" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/ipsamanhas" class="contact__link" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__text">© 2025 Ipsa Manhas </p>
+    </div>
+  </footer>
+
+  <script src="website.js"></script>
+</body>
+</html>
