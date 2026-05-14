@@ -1,13 +1,14 @@
 /**
- * Portfolio site: mobile menu toggle and smooth nav behavior.
+ * Portfolio site: mobile navigation behavior for the editorial layout.
  */
-
 (function () {
+  const MOBILE_NAV_BREAKPOINT = 840;
+  const nav = document.querySelector(".nav");
   const navToggle = document.querySelector(".nav__toggle");
   const navMenu = document.querySelector(".nav__menu");
-  const navLinks = document.querySelectorAll(".nav__link");
+  const navLinks = Array.from(document.querySelectorAll(".nav__link"));
 
-  if (!navToggle || !navMenu) return;
+  if (!nav || !navToggle || !navMenu) return;
 
   function openMenu() {
     navMenu.classList.add("is-open");
@@ -21,94 +22,91 @@
 
   function toggleMenu() {
     const isOpen = navMenu.classList.contains("is-open");
-    if (isOpen) closeMenu();
-    else openMenu();
+    if (isOpen) {
+      closeMenu();
+      return;
+    }
+
+    openMenu();
+  }
+
+  function handleDocumentClick(event) {
+    if (!navMenu.classList.contains("is-open")) return;
+    if (nav.contains(event.target)) return;
+    closeMenu();
+  }
+
+  function handleDocumentKeydown(event) {
+    if (event.key !== "Escape") return;
+    closeMenu();
+  }
+
+  function handleWindowResize() {
+    if (window.innerWidth > MOBILE_NAV_BREAKPOINT) {
+      closeMenu();
+    }
   }
 
   navToggle.addEventListener("click", toggleMenu);
+  document.addEventListener("click", handleDocumentClick);
+  document.addEventListener("keydown", handleDocumentKeydown);
+  window.addEventListener("resize", handleWindowResize);
 
   navLinks.forEach(function (link) {
-    link.addEventListener("click", function () {
-      closeMenu();
-    });
-  });
-})();
-
-(function () {
-  const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
-  const cards = Array.from(document.querySelectorAll(".project-card[data-category]"));
-  const scrollButtons = Array.from(document.querySelectorAll("[data-scroll-to]"));
-
-  scrollButtons.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      const selector = btn.getAttribute("data-scroll-to");
-      if (!selector) return;
-      const target = document.querySelector(selector);
-      if (!target) return;
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  });
-
-  if (filterButtons.length === 0 || cards.length === 0) return;
-
-  function setActive(button) {
-    filterButtons.forEach(function (b) {
-      const isActive = b === button;
-      b.classList.toggle("is-active", isActive);
-      b.setAttribute("aria-selected", String(isActive));
-    });
-  }
-
-  function applyFilter(filter) {
-    cards.forEach(function (card) {
-      const category = card.getAttribute("data-category");
-      const show = filter === "all" || category === filter;
-      card.style.display = show ? "" : "none";
-    });
-  }
-
-  filterButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      const filter = button.getAttribute("data-filter") || "all";
-      setActive(button);
-      applyFilter(filter);
-    });
+    link.addEventListener("click", closeMenu);
   });
 })();
 
 /**
- * Hero image carousel: stacked look, click left/right to change slide, loop.
+ * Hero digicam gallery: cycle through all portfolio photos.
  */
 (function () {
-  const carousel = document.querySelector(".hero__carousel");
-  if (!carousel) return;
+  const digicamImage = document.querySelector("[data-digicam-image]");
+  const prevButton = document.querySelector(".digicam__nav--prev");
+  const nextButton = document.querySelector(".digicam__nav--next");
 
-  const inner = carousel.querySelector(".hero__carousel-inner");
-  const items = carousel.querySelectorAll(".hero__carousel-item");
-  const prevBtn = carousel.querySelector(".hero__carousel-prev");
-  const nextBtn = carousel.querySelector(".hero__carousel-next");
-  const hitPrev = carousel.querySelector(".hero__carousel-hit--prev");
-  const hitNext = carousel.querySelector(".hero__carousel-hit--next");
+  if (!digicamImage || !prevButton || !nextButton) return;
 
-  if (!inner || items.length === 0) return;
+  const galleryImagePaths = [
+    "images/image1.JPG",
+    "images/image2.jpg",
+    "images/image3.jpg",
+    "images/image4.jpg",
+    "images/image5.jpg",
+    "images/image6.JPG",
+    "images/image7.JPG",
+    "images/image8.JPG",
+    "images/image9.jpg",
+    "images/image10.jpg",
+    "images/image11.jpg"
+  ];
+  const imageObjectPositions = {
+    "images/image6.JPG": "center 28%",
+    "images/image7.JPG": "center 22%",
+    "images/image9.jpg": "center 36%"
+  };
+  const defaultObjectPosition = "center 18%";
 
-  let index = 0;
-  const total = items.length;
+  let currentIndex = Math.max(galleryImagePaths.indexOf(digicamImage.getAttribute("src") || ""), 0);
 
-  function goTo(i) {
-    index = ((i % total) + total) % total;
-    inner.style.transform = "translateX(-" + index * 100 + "%)";
+  function renderImage() {
+    const currentPath = galleryImagePaths[currentIndex];
+    digicamImage.setAttribute("src", currentPath);
+    digicamImage.setAttribute("alt", "Photo " + (currentIndex + 1) + " from Ipsa's digicam gallery");
+    digicamImage.style.objectPosition = imageObjectPositions[currentPath] || defaultObjectPosition;
   }
 
-  function handlePrev() {
-    goTo(index - 1);
-  }
-  function handleNext() {
-    goTo(index + 1);
+  function showPreviousImage() {
+    currentIndex = (currentIndex - 1 + galleryImagePaths.length) % galleryImagePaths.length;
+    renderImage();
   }
 
-  if (prevBtn) prevBtn.addEventListener("click", handlePrev);
-  if (nextBtn) nextBtn.addEventListener("click", handleNext);
-  if (hitPrev) hitPrev.addEventListener("click", handlePrev);
-  if (hitNext) hitNext.addEventListener("click", handleNext);
+  function showNextImage() {
+    currentIndex = (currentIndex + 1) % galleryImagePaths.length;
+    renderImage();
+  }
+
+  prevButton.addEventListener("click", showPreviousImage);
+  nextButton.addEventListener("click", showNextImage);
+  renderImage();
 })();
