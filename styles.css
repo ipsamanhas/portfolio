@@ -311,6 +311,7 @@ ul {
     opacity: 1;
     animation: none;
   }
+
 }
 
 .hero__visual {
@@ -1308,8 +1309,34 @@ a:hover {
   min-height: 290px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   background: linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(249, 232, 241, 0.92));
+}
+
+.hero__hearts-decor {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 0.65rem;
+  z-index: 0;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.hero__hearts-img {
+  display: block;
+  width: auto;
+  max-width: clamp(7.5rem, 22vw, 11.5rem);
+  height: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.board-card--intro > .hero__title,
+.board-card--intro > .hero__tagline,
+.board-card--intro > .hero__cta,
+.board-card--intro > .hero__pixel-wrap {
+  position: relative;
+  z-index: 1;
 }
 
 .board-card--photo {
@@ -1430,6 +1457,7 @@ a:hover {
   flex-wrap: wrap;
   gap: 0.7rem;
   margin-top: 1.15rem;
+  margin-bottom: 2rem;
 }
 
 .button {
@@ -1464,14 +1492,22 @@ a:hover {
   color: var(--color-text);
 }
 
-.hero__highlights {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  margin-top: 1.2rem;
+.hero__pixel-wrap {
+  margin-top: auto;
+  align-self: flex-start;
+  line-height: 0;
 }
 
-.hero__highlights li,
+.hero__pixel {
+  display: block;
+  width: auto;
+  max-width: min(100%, 220px);
+  height: auto;
+  max-height: clamp(6rem, 18vw, 10rem);
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
 .tag-pill,
 .experience-card__badge,
 .project-tile__year {
@@ -1487,14 +1523,12 @@ a:hover {
   line-height: 1;
 }
 
-.hero__highlights li,
 .tag-pill {
   padding: 0.58rem 0.85rem;
 }
 
 .project-tile__image img,
-.mini-camera-card__screen img,
-.quote-card__camera-screen img {
+.mini-camera-card__screen img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1728,30 +1762,38 @@ a:hover {
   line-height: 1.75;
 }
 
-.quote-card__camera {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
+.quote-card__pixel-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
   margin-top: 1.1rem;
 }
 
-.quote-card__camera-body {
-  flex: 0 0 112px;
-  padding: 0.6rem;
-  border-radius: 22px;
-  background: linear-gradient(160deg, #efbdd1, #d595b1);
-  border: 1px solid rgba(122, 82, 97, 0.14);
-  box-shadow: 0 14px 24px rgba(175, 120, 146, 0.18);
+.quote-card__pixel-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  min-height: 6.5rem;
+  padding: 0.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(183, 120, 145, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
 }
 
-.quote-card__camera-screen {
-  aspect-ratio: 1 / 0.78;
-  overflow: hidden;
-  border-radius: 12px;
-  border: 8px solid rgba(29, 20, 26, 0.98);
+.quote-card__pixel-item img {
+  display: block;
+  width: 100%;
+  max-height: 5.25rem;
+  height: auto;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
-.quote-card__camera-text {
+.quote-card__pixel-caption {
+  margin-top: 0.85rem;
   color: var(--color-text-muted);
   font-size: 0.95rem;
   line-height: 1.6;
@@ -2114,8 +2156,7 @@ a:hover {
     right: 4.95rem;
   }
 
-  .mini-camera-card,
-  .quote-card__camera {
+  .mini-camera-card {
     align-items: flex-start;
     flex-direction: column;
   }
