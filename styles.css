@@ -1161,6 +1161,24 @@ a:hover {
   padding: 1.4rem 0;
 }
 
+/* Override legacy hero rules (lines ~209–315) — current markup uses hero-board */
+#hero.hero.section--striped {
+  display: block;
+  align-items: unset;
+  justify-content: unset;
+  min-height: 0;
+  padding: 1rem 0;
+  overflow: visible;
+}
+
+#hero .hero__title,
+#hero .hero__tagline,
+#hero .hero__cta {
+  opacity: 1;
+  animation: none;
+  transform: none;
+}
+
 .hero {
   position: relative;
   min-height: auto;
@@ -1173,7 +1191,9 @@ a:hover {
   position: relative;
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: start;
   gap: 1.25rem;
+  width: min(100%, 1040px);
   max-width: 1040px;
   margin: 0 auto;
   padding: 1.05rem 1.15rem 1.2rem;
@@ -1203,6 +1223,7 @@ a:hover {
 .hero-board {
   display: grid;
   gap: 1rem;
+  width: min(100%, 1040px);
   max-width: 1040px;
   margin: 0 auto;
 }
@@ -1210,7 +1231,9 @@ a:hover {
 .hero-row--bottom {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: start;
   gap: 1.25rem;
+  width: min(100%, 920px);
   max-width: 920px;
   margin: 0 auto;
 }
@@ -1306,11 +1329,13 @@ a:hover {
 
 .board-card--intro {
   grid-column: span 7;
-  min-height: 290px;
+  min-height: 0;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  align-self: start;
   background: linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(249, 232, 241, 0.92));
 }
 
@@ -1344,10 +1369,13 @@ a:hover {
 
 .board-card--photo {
   grid-column: span 5;
+  min-height: 0;
+  height: auto;
   padding: 1rem 0.95rem 0.9rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-self: start;
   gap: 0.65rem;
   background: linear-gradient(180deg, rgba(255, 247, 251, 0.98), rgba(244, 228, 239, 0.9));
 }
@@ -1582,7 +1610,8 @@ a:hover {
 
 .digicam {
   position: relative;
-  width: min(100%, 375px);
+  width: min(100%, 340px);
+  max-width: 340px;
   margin: 0 auto;
   padding: 1.1rem 0.95rem 0.95rem;
   border-radius: 32px;
