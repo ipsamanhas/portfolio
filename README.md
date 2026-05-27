@@ -1,4 +1,4 @@
 # portfolio
-hi, this is my portfolio website!
+hi, this is my portfolio!
 
 ...in progress currently
