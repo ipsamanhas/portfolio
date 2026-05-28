@@ -1969,6 +1969,55 @@ a:hover {
   background: #efdce5;
 }
 
+.project-tile__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.project-tile__image--inclusitrip img {
+  object-position: center 52%;
+}
+
+.project-tile__image--resisense {
+  background: #f8f4ea;
+}
+
+.project-tile__image--resisense img {
+  object-fit: contain;
+  padding: 0.7rem;
+}
+
+.project-tile__image--skinbuddy img {
+  object-fit: contain;
+  object-position: center;
+  padding: 0.6rem;
+}
+
+.project-tile__image--skinbuddy {
+  background: #f7f7ff;
+}
+
+.project-tile__image--webease {
+  background: #ffffff;
+}
+
+.project-tile__image--webease img {
+  object-fit: contain;
+  object-position: center;
+  padding: 0.7rem;
+}
+
+.project-tile__image--air-heroes {
+  background: #d9edf2;
+}
+
+.project-tile__image--air-heroes img {
+  object-fit: cover;
+  object-position: center 40%;
+}
+
 .project-tile__body {
   display: flex;
   flex: 1;
