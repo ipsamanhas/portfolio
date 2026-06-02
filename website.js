@@ -110,3 +110,87 @@
   nextButton.addEventListener("click", showNextImage);
   renderImage();
 })();
+
+/**
+ * Reveal sections and cards on load (hero) and when scrolled into view.
+ */
+(function () {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const heroTargets = document.querySelectorAll("#hero .board-card");
+  const scrollTargets = document.querySelectorAll(
+    [
+      "#experience .section-heading",
+      "#experience .experience-card",
+      "#projects .section-heading",
+      "#projects .project-tile",
+      "#skills .section-heading",
+      "#skills .skill-card",
+      "#contact .contact-card"
+    ].join(", ")
+  );
+
+  const allTargets = [...heroTargets, ...scrollTargets];
+
+  if (!allTargets.length) return;
+
+  function showElement(element) {
+    element.classList.add("is-visible");
+  }
+
+  function applyStagger(parentSelector, childSelector, stepSeconds) {
+    const parent = document.querySelector(parentSelector);
+    if (!parent) return;
+
+    parent.querySelectorAll(childSelector).forEach(function (child, index) {
+      child.style.setProperty("--reveal-delay", index * stepSeconds + "s");
+    });
+  }
+
+  allTargets.forEach(function (element) {
+    element.classList.add("reveal");
+  });
+
+  heroTargets.forEach(function (element, index) {
+    element.classList.add("reveal--hero");
+    element.style.setProperty("--reveal-delay", index * 0.14 + "s");
+  });
+
+  applyStagger("#experience .experience__grid", ".experience-card", 0.1);
+  applyStagger("#projects .projects__board", ".project-tile", 0.08);
+  applyStagger("#skills .skills__grid", ".skill-card", 0.1);
+
+  if (prefersReducedMotion) {
+    allTargets.forEach(showElement);
+    return;
+  }
+
+  heroTargets.forEach(function (element) {
+    window.setTimeout(function () {
+      showElement(element);
+    }, 120);
+  });
+
+  if (!("IntersectionObserver" in window)) {
+    scrollTargets.forEach(showElement);
+    return;
+  }
+
+  const revealObserver = new IntersectionObserver(
+    function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        showElement(entry.target);
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -8% 0px"
+    }
+  );
+
+  scrollTargets.forEach(function (element) {
+    revealObserver.observe(element);
+  });
+})();
