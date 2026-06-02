@@ -1,4 +1,4 @@
 # portfolio
 hi, this is my portfolio!
 
-...in progress currently
+i tried to make sure it embodies my personality, as much as I could. might make a few more changes later!
