@@ -1364,6 +1364,7 @@ a:hover {
   image-rendering: crisp-edges;
 }
 
+.board-card--intro > .hero__ribbon,
 .board-card--intro > .hero__title,
 .board-card--intro > .hero__tagline,
 .board-card--intro > .hero__cta,
@@ -1382,6 +1383,7 @@ a:hover {
   justify-content: flex-start;
   align-self: start;
   gap: 0.65rem;
+  overflow: visible;
   background: linear-gradient(180deg, rgba(255, 247, 251, 0.98), rgba(244, 228, 239, 0.9));
 }
 
@@ -1845,6 +1847,15 @@ a:hover {
 .section-heading {
   max-width: 54rem;
   margin-bottom: 1.25rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.eyebrow-flourish {
+  color: var(--color-accent);
+  font-size: 0.72rem;
+  opacity: 0.85;
 }
 
 .section-heading__title {
@@ -1853,8 +1864,15 @@ a:hover {
   letter-spacing: -0.05em;
 }
 
+.section-heading__accent {
+  font-style: italic;
+  color: #7f5567;
+  font-weight: 600;
+}
+
 .section-heading__title--left {
   max-width: 18ch;
+  text-align: left;
 }
 
 .experience__grid {
@@ -2343,5 +2361,246 @@ a:hover {
   .project-tile__footer {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+/* ----- Decorative graphics (inspired by editorial / cosmic site layouts) ----- */
+.ambient-graphics {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ambient-graphics__orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(42px);
+  opacity: 0.45;
+  animation: ambient-drift 11s ease-in-out infinite alternate;
+}
+
+.ambient-graphics__orb--1 {
+  top: 8%;
+  left: -4%;
+  width: 220px;
+  height: 220px;
+  background: rgba(232, 168, 210, 0.55);
+}
+
+.ambient-graphics__orb--2 {
+  top: 42%;
+  right: -6%;
+  width: 280px;
+  height: 280px;
+  background: rgba(196, 210, 240, 0.5);
+  animation-delay: -4s;
+}
+
+.ambient-graphics__orb--3 {
+  bottom: 6%;
+  left: 28%;
+  width: 200px;
+  height: 200px;
+  background: rgba(245, 210, 228, 0.55);
+  animation-delay: -8s;
+}
+
+.bg-sparkle {
+  position: absolute;
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+  font-size: var(--sz, 1.05rem);
+  color: rgba(200, 120, 175, 0.42);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  animation: glyph-float 5s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.bg-sparkle--sm {
+  font-size: var(--sz, 0.78rem);
+  opacity: 0.55;
+}
+
+.bg-sparkle--lg {
+  font-size: var(--sz, 1.55rem);
+  opacity: 0.7;
+}
+
+.ambient-graphics .bg-sparkle {
+  color: rgba(190, 110, 165, 0.4);
+}
+
+.hero-scene .bg-sparkle {
+  color: rgba(180, 100, 160, 0.45);
+}
+
+.section-graphics .bg-sparkle {
+  color: rgba(175, 105, 155, 0.38);
+  font-size: var(--sz, clamp(0.9rem, 2.2vw, 1.4rem));
+}
+
+.page-shell,
+.header {
+  position: relative;
+  z-index: 1;
+}
+
+#hero.hero.section--striped {
+  overflow: hidden;
+}
+
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.sparkle-marquee {
+  position: absolute;
+  top: 0.35rem;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.sparkle-marquee__track {
+  display: flex;
+  width: max-content;
+  gap: 3rem;
+  animation: marquee-slide 28s linear infinite;
+}
+
+.sparkle-marquee__track span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(122, 82, 97, 0.55);
+  white-space: nowrap;
+}
+
+.hero__ribbon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(168, 106, 196, 0.22);
+  background: rgba(255, 255, 255, 0.72);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.hero__ribbon span {
+  color: var(--color-accent);
+  font-size: 0.62rem;
+}
+
+.section-graphics {
+  position: absolute;
+  inset: 0;
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.section--gingham-light {
+  position: relative;
+}
+
+.experience-card:hover,
+.project-tile:hover,
+.skill-card:hover {
+  box-shadow:
+    var(--shadow-md),
+    0 0 0 1px rgba(168, 106, 196, 0.08),
+    0 0 28px rgba(232, 168, 210, 0.22);
+}
+
+@keyframes ambient-drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(18px, -14px) scale(1.06);
+  }
+}
+
+@keyframes glyph-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.38;
+  }
+
+  50% {
+    transform: translateY(-14px) rotate(10deg);
+    opacity: 0.7;
+  }
+}
+
+.about-sparkles {
+  position: absolute;
+  inset: 0;
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.about-sparkles .bg-sparkle {
+  color: rgba(185, 105, 155, 0.45);
+}
+
+@keyframes marquee-slide {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-graphics__orb,
+  .bg-sparkle,
+  .sparkle-marquee__track {
+    animation: none;
+  }
+}
+
+@media (max-width: 840px) {
+  .sparkle-marquee {
+    display: none;
+  }
+
+  .bg-sparkle {
+    opacity: 0.45;
+  }
+
+  .bg-sparkle--lg {
+    opacity: 0.55;
   }
 }
