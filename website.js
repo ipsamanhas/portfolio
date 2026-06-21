@@ -121,6 +121,7 @@
   const scrollTargets = document.querySelectorAll(
     [
       "#experience .section-heading",
+      "#experience .experience-banner",
       "#experience .experience-card",
       "#projects .section-heading",
       "#projects .project-tile",

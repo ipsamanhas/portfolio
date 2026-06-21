@@ -1875,6 +1875,70 @@ a:hover {
   text-align: left;
 }
 
+.experience-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem 1.75rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-strong);
+  background: linear-gradient(120deg, rgba(255, 247, 251, 0.97), rgba(236, 228, 245, 0.92));
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.experience-banner__badge {
+  flex: 0 0 auto;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.experience-banner__body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.experience-banner__title {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.experience-banner__title span {
+  color: var(--color-accent);
+}
+
+.experience-banner__text {
+  margin-top: 0.3rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.experience-banner__dates {
+  flex: 0 0 auto;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .experience-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
 .experience__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
